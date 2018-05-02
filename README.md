@@ -44,7 +44,7 @@ f. Once the scan is complete the data will get populated on Watchdog’s UI whic
 - Incase, if you are facing any issues in installing, follow below steps (workaround, works for Ubuntu 16+)
 ```
 $ export LC_ALL=C
-$ cd tmp
+$ cd /tmp
 $ pip install -e git://github.com/brokenseal/PyV8-OS-X#egg=pyv8
 $ git clone https://github.com/emmetio/pyv8-binaries.git
 $ unzip pyv8-binaries/pyv8-linux64.zip (or unzip appropriate zip file based on kernal version)
