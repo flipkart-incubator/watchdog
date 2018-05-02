@@ -26,7 +26,7 @@ WatchDog has the ability to scan all endpoints and perform technology version an
 
 ### Databases and collections:
 -------------------------
-The MongoDB database is called cvedb and there are 11 collections:
+Watchdog installs a local copy of CVE database which is a collection of following DB's :
 
 * cves (Common Vulnerabilities and Exposure items) - source NVD NIST
 * cpe (Common Platform Enumeration items) - source NVD NIST
@@ -69,7 +69,7 @@ d. If step 1 detects any http services running *(80/443)* it will go ahead and p
 
 f. Once the scan is complete the data will get populated on Watchdog’s UI which can be found at http://localhost/index.php
 
-### Installing watchdog:
+### Installing Watchdog:
 -------------------------
 
 **Prerequisites & Softwares**
