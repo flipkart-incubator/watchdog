@@ -5,8 +5,12 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://github.com/flipkart-incubator/watchdog/blob/master/LICENSE)
 
 
-**Watchog** is an integration of open source security tools aimed to provide a holistic security view for a given domain/IP. The way Watchdog is built it can be used by product security teams, red teams and also by bug bounty hunters to get a 360 degree view of any Internet property it scans. Given a list of domains/IP it has the capability to perform a network scan, feed the output to open source web app scanners like Google's skip-fish and wapiti, perform tech stack analysis and determine if the stack has any known CVE’s.
-Watchdog is designed considering the use case where it is necessary to know all open services and its corresponding technologies used by the endpoints you own exposed over the Internet. As a company grows it’s foot-prints on the Internet for a product security team it becomes really difficult to maintain an inventory of all the services and technologies which it exposes over the Internet, and on an event of a zero-day outbreak on a particular protocol or a third party product it becomes immensely crucial to know which all endpoints might be affected. WatchDog has the ability to scan all endpoints and perform technology version analysis on the services it detects and also map this information with it's rich [CVE](https://github.com/cve-search/cve-search) database which it maintains and updates locally.
+**Watchog** is an integration of open source security tools aimed to provide a holistic security view for a given domain/IP. The way Watchdog is built it can be used by product security teams, red teams and also by bug bounty hunters to get a 360 degree view of any Internet property it scans. 
+Given a list of domains/IP it has the capability to perform a network scan, feed the output to open source web app scanners like Google's skip-fish and wapiti, perform tech stack analysis and determine if the stack has any known CVE’s.
+
+Watchdog is designed considering the use case where it is necessary to know all open services and its corresponding technologies used by the endpoints you own exposed over the Internet. As a company grows it’s foot-prints on the Internet for a product security team it becomes really difficult to maintain an inventory of all the services and technologies which it exposes over the Internet, and on an event of a zero-day outbreak on a particular protocol or a third party product it becomes immensely crucial to know which all endpoints might be affected.
+
+WatchDog has the ability to scan all endpoints and perform technology version analysis on the services it detects and also map this information with it's rich [CVE](https://github.com/cve-search/cve-search) database which it maintains and updates locally.
 
 Eg: Consider a test domain ``www.scanthis.com`` 
 watchdog will perform following task on this domain:
