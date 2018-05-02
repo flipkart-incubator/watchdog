@@ -1,5 +1,8 @@
-# WATCHDOG &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=WatchDog%20-%20An%20intelligent%20security%20scanner%20and%20a%20vulnerability%20Management%20Tool&url=https://github.com/flipkart-incubator/watchdog&via=prajalkulkarni&hashtags=security,infosec,bugbounty)
+# WATCHDOG &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=WatchDog%20-%20An%20intelligent%20security%20scanner%20and%20a%20vulnerability%20Management%20Tool&url=https://github.com/flipkart-incubator/watchdog&via=prajalkulkarni&hashtags=security,infosec,productsecurity,bugbounty)
 
+[![Github Release Version](https://img.shields.io/badge/release-V1.0-green.svg)](https://github.com/flipkart-incubator/watchdog)
+[![Github Release Version](https://img.shields.io/badge/python-2.7-green.svg)](https://github.com/flipkart-incubator/watchdog)
+[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://github.com/flipkart-incubator/watchdog/blob/master/LICENSE)
 
 
 **Watchog** is an integration of open source security tools aimed to provide a holistic security view for a given domain/IP. The way Watchdog is built it can be used by product security teams, red teams and also by bug bounty hunters to get a 360 degree view of any Internet property it scans. Given a list of domains/IP it has the capability to perform a network scan, feed the output to open source web app scanners like Google's skip-fish and wapiti, perform tech stack analysis and determine if the stack has any known CVE’s.
