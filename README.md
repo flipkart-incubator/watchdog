@@ -140,7 +140,7 @@ a. Install cve-db using below command (Required to run atleast once)
 $sudo python run.py -u install
 ```
 
-b. Map cves with cpes using below command [Required to run at-least once and the first run generally takes around 30~45 mins for the entire db to get populated. Recommended time minimum **30mins**]
+b. Map cves with cpes using below command [Required to run at-least once. The first run generally takes around 30~45 mins for the entire db to get populated. Recommended time: minimum **30mins**]
 
 ```
 $sudo python run.py -u map
