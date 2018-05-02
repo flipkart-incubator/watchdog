@@ -108,7 +108,8 @@ testphp.vulnweb.com
 ```
 $ sudo chmod +x install.sh
 $ sudo ./install.sh
-* During installation, script prompts for web root directory. Default directory /var/www/html will be taken automatically if not provided explicitly with-in 10 secs
+* During installation, script prompts for web root directory. 
+  Default directory /var/www/html will be taken automatically if not provided explicitly with-in 10 secs
 ```
 **Scanning with Watchdog:**
 
