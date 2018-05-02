@@ -12,7 +12,7 @@ Watchdog is designed considering the use case where it is necessary to know all 
 
 WatchDog has the ability to scan all endpoints and perform technology version analysis on the services it detects and also map this information with it's rich [CVE](https://github.com/cve-search/cve-search) database which it maintains and updates locally.
 
-Eg: Consider a test domain ``www.scanthis.com`` 
+Eg: Consider a test domain **www.scanthis.com**
 watchdog will perform following task on this domain:
 
 a. Scan the domain to find visible open ports. 
