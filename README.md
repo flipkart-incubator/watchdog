@@ -102,21 +102,25 @@ $ sudo python run.py -iR subdomains.txt (for replacing targets in existing inven
 * Frontend can be accessed from http://localhost/index.php (or replace localhost with your web server address)
 
 **Lead Developer**
+
 - Mohan Krushna K (mohan.kk@flipkart.com)
 
 **Project Lead**
+
 -Prajal Kulkarni (https://twitter.com/prajalkulkarni
 
 **Project Team**
+
 -[Shubham Bansal] (https://github.com/shubham643)
+
 -[Prabhav Adhikari] (https://github.com/prabhavad)
+
 -[Rohit Agrawal] (https://github.com/iirohit)
 
-Credits
-
--Flipkart Security Team
--NMAP
--[Wapiti] (http://wapiti.sourceforge.net/)
--Skipfish
--[Phantalyser] (https://github.com/mlconnor/phantalyzer)
--[CVE Search](https://github.com/cve-search/cve-search)
+### Credits
+- Flipkart Security Team
+- NMAP
+- [Wapiti](http://wapiti.sourceforge.net/)
+- Skipfish
+- [Phantalyser](https://github.com/mlconnor/phantalyzer)
+- [CVE Search](https://github.com/cve-search/cve-search)
