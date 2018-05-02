@@ -167,19 +167,19 @@ $ sudo python run.py -iR subdomains.txt (for replacing targets in existing inven
 -------------------------
 **Lead Developer**
 
-- Mohan KK ([@MohanKallepalli](https://twitter.com/MohanKallepalli)) 
+- Mohan KK [@MohanKallepalli](https://twitter.com/MohanKallepalli)
 
 **Project Lead**
 
-- Prajal Kulkarni (https://twitter.com/prajalkulkarni)
+- [Prajal Kulkarni](https://twitter.com/prajalkulkarni)
 
 **Project Team**
 
-- [Shubham Bansal] (https://github.com/shubham643)
+- [Shubham Bansal](https://github.com/shubham643)
 
-- [Prabhav Adhikari] (https://github.com/prabhavad)
+- [Prabhav Adhikari](https://github.com/prabhavad)
 
-- [Rohit Agrawal] (https://github.com/iirohit)
+- [Rohit Agrawal](https://github.com/iirohit)
 
 ### Credits
 -------------------------
