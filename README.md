@@ -33,7 +33,7 @@ d. If step 1 detects any http services running **(80/443)** it will go ahead and
 
 f. Once the scan is complete the data will get populated on Watchdog’s UI which can be found at ``http://localhost/index.php``
 
-###Installing watchdog
+### Installing watchdog
 
 **Prerequisites & Softwares**
 ```
