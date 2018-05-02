@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg2"
+   viewBox="0 0 67.752999 58.881001"
+   height="58.881001"
+   width="67.752998">
+  <defs
+     id="defs4" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-993.48118)"
+     id="layer1">
+    <g
+       id="g4790">
+      <path
+         id="path40"
+         style="fill:#f89c15;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         d="m 59.421119,993.48124 -51.7978198,0 c -4.11329,0 -7.62305002397,3.60688 -7.62305002397,7.71676 l 0,18.1719 c 0,18.2192 15.44536982397,32.9922 33.87886982397,32.9922 18.43263,0 33.87363,-14.773 33.87363,-32.9922 l 0,-18.1719 c 0,-4.10988 -4.21738,-7.71676 -8.33163,-7.71676" />
+      <path
+         id="path42"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         d="m 11.638439,1019.801 c 0,12.1534 9.77343,21.8482 22.07031,21.8482 12.29737,0 22.07475,-9.8462 22.07475,-22.1631 l -11.129,0 c 0,6.1583 -4.54875,11.1596 -10.69325,11.1596 -6.15188,0 -10.69288,-4.769 -10.69288,-10.8447 l 0,-10.5795 -11.62993,0 0,10.5795" />
+      <path
+         id="path44"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         d="m 11.638439,1019.5622 c 0,12.1504 9.77343,21.9674 22.07031,21.9674 12.29737,0 22.07475,-9.7266 22.07475,-22.0435 l -11.129,0 c 0,6.1583 -4.54875,11.04 -10.69325,11.04 -6.15188,0 -10.69288,-4.8921 -10.69288,-10.9639 l 0,-10.3407 -11.62993,0 0,10.3407" />
+      <path
+         id="path46"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         d="m 47.434869,1002.5071 -2.59775,10.6373 10.76425,2.7475 2.78363,-10.6358 -10.95013,-2.749" />
+    </g>
+  </g>
+</svg>

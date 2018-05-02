@@ -1,0 +1,12 @@
+Interesting file
+HTML form with no apparent XSRF protection
+Mixed content embedded on a page (higher risk)
+Password entry form - consider brute-force
+Hidden files / directories
+HTML form (not classified otherwise)
+Query injection vector
+Shell injection vector
+Server-side XML injection vector
+External content embedded on a page (lower risk)
+Unknown form field (can't autocomplete)
+File upload form

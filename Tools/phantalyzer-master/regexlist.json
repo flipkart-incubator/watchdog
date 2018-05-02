@@ -1,0 +1,213 @@
+{
+    "Requested URL" : {
+        "pattern" : "^requestedUrl: ([^$]+?)$",
+        "modifiers" : "m",
+        "hit" : "{{1}}",
+        "miss" : "report missing" 
+    },
+    "Page URL" : {
+        "pattern" : "^pageUrl: ([^$]+?)$",
+        "modifiers" : "m",
+        "hit" : "{{1}}",
+        "miss" : "miss" 
+    },
+    "Page Error" : {
+        "pattern" : "^pageError: ([^$]+?)$",
+        "modifiers" : "m",
+        "hit" : "{{1}}",
+        "miss" : "" 
+    },
+    "Page Error Detail" : {
+        "pattern" : "^pageErrorDetail: ([^$]+?)$",
+        "modifiers" : "m",
+        "hit" : "{{1}}",
+        "miss" : "" 
+    },
+    "General Error Count": {
+        "pattern": "^error: ",
+        "modifiers": "im",
+        "hit" : "{{count}}",
+        "miss" : "0"
+    },
+    "Page Error Count": {
+        "pattern": "^pageError: ",
+        "modifiers": "im",
+        "hit" : "{{count}}",
+        "miss" : "0"
+    },
+    "Resource Error Count": {
+        "pattern": "^resourceError: ",
+        "modifiers": "im",
+        "hit" : "{{count}}",
+        "miss" : "0"
+    },
+    "Domain Change" : {
+        "pattern" : "^domainChange:",
+        "modifiers" : "m",
+        "hit" : "yes",
+        "miss" : "" 
+    },
+    "CName Change" : {
+        "pattern" : "^cnameDomainChange:",
+        "modifiers" : "m",
+        "hit" : "yes",
+        "miss" : "" 
+    },
+   "PageLoad" : {
+        "pattern" : "^pageLoadTimeMillis: (\\d+)",
+        "modifiers" : "m",
+        "hit" : "{{1}}",
+        "miss" : "not found"
+    },
+    "Copyright date" : {
+        "pattern": "©\\s*(\\d{4}(?:\\s*-\\s*\\d{4})?)",
+        "modifiers": "i",
+        "hit" : "{{1}}",
+        "miss" : ""
+    },  
+    "Websphere": {
+        "pattern": "^wappalyzerDetected: Java",
+        "modifiers": "im",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    ".NET": {
+        "pattern": "^wappalyzerDetected: Microsoft ASP.NET",
+        "modifiers": "mi",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "PHP": {
+        "pattern": "^wappalyzerDetected: PHP",
+        "modifiers": "mi",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "Janrain": {
+        "pattern": "janrain",
+        "modifiers": "i",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "Flash": {
+        "pattern": "(<\\s*embed\\s+[^>]*\\.swf?|wappalyzerDetected: SWFObject)",
+        "modifiers": "i",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "Wordpress": {
+        "pattern": "^wappalyzerDetected: WordPress",
+        "modifiers": "mi",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "CQ": {
+        "pattern": "^wappalyzerDetected: Adobe CQ5",
+        "modifiers" : "m",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "Operating System": {
+        "pattern": "^wappalyzerDetected: (Unix|Centos|Redhat|Windows Server)",
+        "modifiers": "mi",
+        "hit" : "{{1}}",
+        "miss" : ""
+    },
+    "Webtrends Tagging": {
+        "pattern": "//statse.webtrendslive.com/([^/]+)",
+        "modifiers": "i",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "Webtrends ID": {
+        "pattern": "//statse.webtrendslive.com/([^/]+)",
+        "modifiers": "i",
+        "hit" : "{{1}}",
+        "miss" : ""
+    },
+    "Google Analytics": {
+        "patternx": "utmac=(UA-[-0-9]+)",
+        "pattern": "['\"](UA-\\d+-\\d+)['\"]",
+        "modifiers": "i",
+        "hit" : "{{1}}",
+        "miss" : ""
+    },
+    "Pop-ups": {
+        "pattern": "window.open",
+        "modifiers": "i",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "Video on Homepage": {
+        "pattern": "\\.(wmv|mov|flv|mp4|ogg|webm)",
+        "modifiers": "i",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "Audio on Homepage": {
+        "pattern": "\\.(aac|m4a|mpeg|mp1|mp2|mp3|mpg|mpeg|oga|ogg|wav)",
+        "modifiers": "i",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "Downloads": {
+        "pattern": "href\\s*=\\s*['\"][^>]*downloads",
+        "modifiers": "i",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "Screensavers": {
+        "pattern": "href\\s*=\\s*['\"][^>]*screensavers",
+        "modifiers": "i",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "Emoticons": {
+        "pattern": "href\\s*=\\s*['\"][^>]*emoticons",
+        "modifiers": "i",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "Twitter": {
+        "pattern": "^resourceReceived: .*twitter\\.com.*$",
+        "modifiers": "im",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "Google Search": {
+        "pattern": "(//www\\.google\\.com/cse/cse\\.js|<gcse:search>)",
+        "modifiers": "i",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "Facebook": {
+        "pattern": "^resourceReceived: .*facebook\\.com.*$",
+        "modifiers": "im",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "Youtube": {
+        "pattern": "^resourceReceived: .*youtube\\.com.*$",
+        "modifiers": "im",
+        "hit" : "yes",
+        "miss" : ""
+    },
+    "Netbiscuits" : {
+        "pattern":"Netbiscuits",
+        "modifiers" : "i",
+        "hit"        : "yes",
+        "false"      : ""
+    },
+    "Detected Apps" : {
+        "pattern" : "^detectedApps: ([^$]*?)$",
+        "modifiers" : "m",
+        "hit"       : "{{1}}",
+        "false"      : ""
+    },
+    "Cookie Domains" : {
+        "pattern" : "^cookieDomains: ([^$]*?)$",
+        "modifiers" : "m",
+        "hit"       : "{{1}}",
+        "false"      : ""
+    }
+}

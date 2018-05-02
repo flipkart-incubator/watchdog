@@ -1,0 +1,313 @@
+cve-search
+==========
+
+[![Join the chat at https://gitter.im/cve-search/cve-search](https://badges.gitter.im/cve-search/cve-search.svg)](https://gitter.im/cve-search/cve-search?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+![cve-search logo](https://avatars3.githubusercontent.com/u/15033728?v=3&s=200)
+
+[![Build Status](https://travis-ci.org/cve-search/cve-search.svg?branch=master)](https://travis-ci.org/cve-search/cve-search)
+
+cve-search is a tool to import CVE (Common Vulnerabilities and Exposures) and
+CPE (Common Platform Enumeration) into a MongoDB to facilitate search
+and processing of CVEs.
+
+The main objective of the software is to avoid doing direct and public lookups
+into the public CVE databases. Local lookups are usually faster and you can 
+limit your sensitive queries via the Internet.
+
+cve-search includes a back-end to store vulnerabilities and related information,
+an intuitive web interface for search and managing vulnerabilities,
+a series of tools to query the system and a web API interface.
+
+cve-search is used by many organizations including the [public CVE services of CIRCL](https://cve.circl.lu/).
+
+Requirements
+------------
+
+* Python3.3 or later
+* MongoDB 2.2 or later
+* redis server
+* Pip3
+  * PyMongo
+  * Flask
+  * Flask-PyMongo
+  * Flask-Login
+  * Tornado
+  * Whoosh
+  * Redis
+  * Python-dateutil
+  * passlib
+  * feedformater (for RSS and Atom dump_last) http://code.google.com/p/feedformatter/
+  * Whoosh http://packages.python.org/Whoosh/ (If you're planning to use the Full-text indexer)
+  * irc
+  * sleekxmpp
+  * Werkzeug
+  * Jinja2
+  * itsdangerous
+  * click
+
+The requirements can be installed with pip:
+
+    sudo pip3 install -r requirements.txt
+
+Installation of MongoDB
+-----------------------
+
+First, you'll need to have a Python 3 installation (3.3 or higher).
+Then you need to install MongoDB (2.2) from source (this should also work
+with any standard packages from your favorite distribution). Don't forget
+to install the headers for development while installing MongoDB.
+You can go to http://docs.mongodb.org/manual/installation/ for to get the
+packages for your distribution, or http://www.mongodb.org/downloads for
+the source code.
+
+
+Populating the database
+-----------------------
+
+For the initial run, you need to populate the CVE database by running:
+
+    ./sbin/db_mgmt.py -p
+    ./sbin/db_mgmt_cpe_dictionary.py
+    ./sbin/db_updater.py -c
+
+It will fetch all the existing XML files from the Common Vulnerabilities
+and Exposures database and the Common Platform Enumeration. The initial
+Common Platform Enumeration (CPE) import might take some time depending
+of your configuration.
+
+If you want to add the cross-references from NIST, Red Hat and other vendors:
+
+    ./sbin/db_mgmt_ref.py
+
+A more detailed documentation can be found in the Documentations folder of the project.
+
+Databases and collections
+-------------------------
+
+The MongoDB database is called cvedb and there are 11 collections:
+
+* cves (Common Vulnerabilities and Exposure items) - source NVD NIST
+* cpe (Common Platform Enumeration items) - source NVD NIST
+* cwe (Common Weakness Enumeration items) - source NVD NIST
+* capec (Common Attack Pattern Enumeration and Classification) - source NVD NIST
+* ranking (ranking rules per group) - local cve-search
+* d2sec (Exploitation reference from D2 Elliot Web Exploitation Framework) - source d2sec.com
+* [MITRE Reference Key/Maps](https://cve.mitre.org/data/refs/) - source MITRE reference Key/Maps
+* ms - (Microsoft Bulletin (Security Vulnerabilities and Bulletin)) - source [Microsoft](http://www.microsoft.com/en-us/download/details.aspx?id=36982)
+* exploitdb (Offensive Security - Exploit Database) - source [offensive security](https://github.com/offensive-security/exploit-database)
+* info (metadata of each collection like last-modified) - local cve-search
+* via4 [VIA4CVE](https://github.com/cve-search/VIA4CVE) cross-references.
+
+The Redis database has 3 databases:
+
+* 10: The cpe (Common Platform Enumeration) cache - source MongoDB cvedb collection cpe
+* 11: The notification database - source cve-search
+* 12: The [CVE reference database](https://cve.mitre.org/data/refs/) is a cross-reference database to CVE ids against various vendors ID - source NVD NIST/MITRE
+
+The reference database has 3 additional sources:
+
+* [MITRE Reference Key/Maps](https://cve.mitre.org/data/refs/).
+* Red Hat RPM to CVE database.
+* Red Hat RHSA Oval database.
+
+Updating the database
+---------------------
+
+An updater script helps to start the db_mgmt_*  
+
+    ./sbin/db_updater.py -v
+
+You can run it in a crontab, logging is done in syslog by default.
+
+Repopulating the database
+-------------------------
+
+To easily drop and re-populate all the databases
+
+    ./sbin/db_updater.py -v -f
+
+This will drop all the existing external sources and reimport everything. This operation can take some time
+and it's usually only required when new attributes parsing are added in cve-search.
+
+Usage
+-----
+
+You can search the database using search.py
+
+    ./bin/search.py -p cisco:ios:12.4
+    ./bin/search.py -p cisco:ios:12.4 -o json
+    ./bin/search.py -f nagios -n
+    ./bin/search.py -p microsoft:windows_7 -o html
+
+If you want to search all the WebEx vulnerabilities and only printing the official
+references from the supplier.
+
+    ./bin/search.py -p webex: -o csv  -v "cisco"
+
+You can also dump the JSON for a specific CVE ID.
+
+    ./bin/search.py -c CVE-2010-3333
+
+Or you can use the XMPP bot
+
+    ./bin/search_xmpp.py -j mybot@jabber.org -p strongpassword
+
+Or dump the last 2 CVE entries in RSS or Atom format
+
+    ./bin/dump_last.py -f atom -l 2
+
+Or you can use the webinterface.
+
+    ./web/index.py
+
+Usage of the ranking database
+-----------------------------
+
+There is a ranking database allowing to rank software vulnerabilities based on
+their common platform enumeration name. The ranking can be done per organization
+or department within your organization or any meaningful name for you.
+
+As an example, you can add a partial CPE name like "sap:netweaver" which is very
+critical for your accounting department.
+
+    ./sbin/db_ranking.py  -c "sap:netweaver" -g "accounting" -r 3
+
+and then you can lookup the ranking (-r option) for a specific CVE-ID:
+
+    ./bin/search.py -c CVE-2012-4341  -r  -n
+
+Advanced usage
+--------------
+
+As cve-search is based on a set of tools, it can be used and combined with standard Unix tools. If you ever wonder what are the top vendors using the term "unknown" for their vulnerabilities:
+
+    python3 bin/search_fulltext.py -q unknown -f | jq -c '. | .vulnerable_configuration[0]' | cut -f5 -d: | sort  | uniq -c  | sort -nr | head -10
+
+    1500 oracle
+    381 sun
+    372 hp
+    232 google
+    208 ibm
+    126 mozilla
+    103 microsoft
+    100 adobe
+     78 apple
+     68 linux
+
+You can compare CVSS (Common Vulnerability Scoring System ) values of some products based on their CPE name. Like comparing oracle:java versus sun:jre and using R to make some statistics about their CVSS values:
+
+    python3 bin/search.py -p oracle:java -o json  | jq -r '.cvss' | Rscript -e 'summary(as.numeric(read.table(file("stdin"))[,1]))'
+    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+    1.800   5.350   9.300   7.832  10.000  10.000
+
+
+    python3 bin/search.py -p sun:jre -o json  | jq -r '.cvss' | Rscript -e 'summary(as.numeric(read.table(file("stdin"))[,1]))'
+    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+    0.000   5.000   7.500   7.333  10.000  10.000
+
+Fulltext indexing
+-----------------
+
+If you want to index all the CVEs from your current MongoDB collection:
+
+    ./sbin/db_fulltext.py
+
+and you query the fulltext index (to get a list of matching CVE-ID):
+
+    ./bin/search_fulltext.py -q NFS -q Linux
+
+or to query the fulltext index and output the JSON object for each CVE-ID:
+
+    ./bin/search_fulltext.py -q NFS -q Linux -f
+
+Fulltext visualization
+----------------------
+
+The fulltext indexer visualization is using the fulltext indexes to build
+a list of the most common keywords used in CVE. [NLTK](http://nltk.org/) is
+required to generate the keywords with the most common English
+stopwords and lemmatize the output. [NTLK for Python 3](http://nltk.org/nltk3-alpha/)
+exists but you need to use the alpha version of NLTK.
+
+    ./bin/search_fulltext.py  -g -s >cve.json
+
+![cve-search visualization](https://farm9.staticflickr.com/8109/8603509755_c7690c2de4_n.jpg "CVE Keywords Visualization Using Data From cve-search")
+
+You can see a visualization on the [demo site](http://www.foo.be/cve/).
+
+Web interface
+-------------
+
+The web interface is a minimal interface to see the last CVE entries and
+query a specific CVE. You'll need flask in order to run the website and [Flask-PyMongo](http://flask-pymongo.readthedocs.org/en/latest/). To start
+the web interface:
+
+    cd ./web
+    ./index.py
+
+Then you can connect on http://127.0.0.1:5000/ to browser the last CVE.
+
+Web API interface
+-----------------
+
+The web interface includes a minimal JSON API to get CVE by ID, by vendor or product.
+A public version of the API is also accessible on [cve.circl.lu](https://cve.circl.lu/).
+
+List the know vendors in JSON
+
+~~~
+curl http://127.0.0.1:5000/api/browse/
+~~~
+
+Dump the product of a specific vendor in JSON
+
+~~~
+curl  http://127.0.0.1:5000/api/browse/zyxel 
+{
+  "product": [
+    "n300_netusb_nbg-419n",
+    "n300_netusb_nbg-419n_firmware",
+    "p-660h-61",
+    "p-660h-63",
+    "p-660h-67",
+    "p-660h-d1",
+    "p-660h-d3",
+    "p-660h-t1",
+    "p-660h-t3",
+    "p-660hw",
+    "p-660hw_d1",
+    "p-660hw_d3",
+    "p-660hw_t3"
+  ],
+  "vendor": "zyxel"
+}
+~~~
+
+Find the associated vulnerabilities to a vendor and a product
+
+~~~
+curl  http://127.0.0.1:5000/api/search/zyxel/p-660hw
+[{"cwe": "CWE-352", "references": ["http://www.exploit-db.com/exploits/33518", "http://secunia.com/advisories/58513", "http://packetstormsecurity.com/files/126812/Zyxel-P-660HW-T1-Cross-Site-Request-Forgery.html", "http://osvdb.org/show/osvdb/107449"], "vulnerable_configuration": ["cpe:/h:zyxel:p-660hw:_t1:v3"], "Published": "2014-06-16T14:55:09.713-04:00", "id": "CVE-2014-4162", "Modified": "2014-07-17T01:07:29.683-04:00", "cvss": 6.8, "summary": "Multiple cross-site request forgery (CSRF) vulnerabilities in the Zyxel P-660HW-T1 (v3) wireless router allow remote attackers to hijack the authentication of administrators for requests that change the (1) wifi password or (2) SSID via a request to Forms/WLAN_General_1."}, {"cwe": "CWE-20", "references": ["http://www.kb.cert.org/vuls/id/893726"], "vulnerable_configuration": ["cpe:/h:zyxel:p-660h-63:-", "cpe:/h:zyxel:p-660h-t1:-", "cpe:/h:zyxel:p-660h-d3:-", "cpe:/h:zyxel:p-660h-t3:v2", "cpe:/h:zyxel:p-660h-t1:v2", "cpe:/h:zyxel:p-660h-d1:-", "cpe:/h:zyxel:p-660h-67:-", "cpe:/h:zyxel:p-660h-61:-", "cpe:/h:zyxel:p-660hw_t3:v2", "cpe:/h:zyxel:p-660hw_t3:-", "cpe:/h:zyxel:p-660hw_d3:-", "cpe:/h:zyxel:p-660hw_d1:v2", "cpe:/h:zyxel:p-660hw_d1:-", "cpe:/h:zyxel:p-660hw:_t1:v2", "cpe:/h:zyxel:p-660hw:_t1:-"], "Published": "2014-04-01T23:58:16.967-04:00", "id": "CVE-2013-3588", "Modified": "2014-04-02T11:29:53.243-04:00", "cvss": 7.8, "summary": "The web management interface on Zyxel P660 devices allows remote attackers to cause a denial of service (reboot) via a flood of TCP SYN packets."}, {"cwe": "CWE-79", "references": ["http://osvdb.org/ref/99/rompager407.pdf", "http://osvdb.org/99694", "http://antoniovazquezblanco.github.io/docs/advisories/Advisory_RomPagerXSS.pdf"], "vulnerable_configuration": ["cpe:/h:d-link:dsl-2640r:-", "cpe:/h:d-link:dsl-2641r:-", "cpe:/h:huawei:mt882:-", "cpe:/h:sitecom:wl-174:-", "cpe:/h:tp-link:td-8816:-", "cpe:/a:allegrosoft:rompager:4.07", "cpe:/h:zyxel:p-660hw_d1:-"], "Published": "2014-01-16T14:55:04.607-05:00", "id": "CVE-2013-6786", "Modified": "2014-01-17T11:01:47.353-05:00", "cvss": 4.3, "summary": "Cross-site scripting (XSS) vulnerability in Allegro RomPager before 4.51, as used on the ZyXEL P660HW-D1, Huawei MT882, Sitecom WL-174, TP-LINK TD-8816, and D-Link DSL-2640R and DSL-2641R, when the \"forbidden author header\" protection mechanism is bypassed, allows remote attackers to inject arbitrary web script or HTML by requesting a nonexistent URI in conjunction with a crafted HTTP Referer header that is not properly handled in a 404 page.  NOTE: there is no CVE for a \"URL redirection\" issue that some sources list separately."}, {"cwe": "CWE-79", "references": ["http://xforce.iss.net/xforce/xfdb/41109", "http://www.securityfocus.com/archive/1/archive/1/489009/100/0/threaded", "http://www.gnucitizen.org/projects/router-hacking-challenge/"], "vulnerable_configuration": ["cpe:/h:zyxel:p-660hw_t3:v2", "cpe:/h:zyxel:p-660hw:_t1:v2", "cpe:/h:zyxel:p-660hw_d1:v2", "cpe:/h:zyxel:p-660hw_t3:-", "cpe:/h:zyxel:p-660hw:_t1:-", "cpe:/h:zyxel:p-660hw_d3:-", "cpe:/h:zyxel:p-660hw_d1:-"], "Published": "2008-03-10T13:44:00.000-04:00", "id": "CVE-2008-1257", "Modified": "2012-05-31T00:00:00.000-04:00", "cvss": 4.3, "summary": "Cross-site scripting (XSS) vulnerability in Forms/DiagGeneral_2 on the ZyXEL P-660HW series router allows remote attackers to inject arbitrary web script or HTML via the PingIPAddr parameter."}, {"id": "CVE-2008-1256", "references": ["http://xforce.iss.net/xforce/xfdb/41108", "http://www.securityfocus.com/archive/1/archive/1/489009/100/0/threaded", "http://www.gnucitizen.org/projects/router-hacking-challenge/"], "vulnerable_configuration": ["cpe:/h:zyxel:p-660hw"], "Published": "2008-03-10T13:44:00.000-04:00", "Modified": "2011-03-07T22:06:25.080-05:00", "cvss": 10.0, "summary": "The ZyXEL P-660HW series router has \"admin\" as its default password, which allows remote attackers to gain administrative access."}, {"cwe": "CWE-264", "references": ["http://www.securityfocus.com/archive/1/archive/1/489009/100/0/threaded", "http://www.gnucitizen.org/projects/router-hacking-challenge/", "http://xforce.iss.net/xforce/xfdb/41114"], "vulnerable_configuration": ["cpe:/h:zyxel:p-660hw"], "Published": "2008-03-10T13:44:00.000-04:00", "id": "CVE-2008-1255", "Modified": "2008-09-05T17:37:15.440-04:00", "cvss": 10.0, "summary": "The ZyXEL P-660HW series router maintains authentication state by IP address, which allows remote attackers to bypass authentication by establishing a session from a source IP address of a previously authenticated user."}, {"cwe": "CWE-352", "references": ["http://www.securityfocus.com/archive/1/archive/1/489009/100/0/threaded", "http://www.gnucitizen.org/projects/router-hacking-challenge/", "http://xforce.iss.net/xforce/xfdb/41111"], "vulnerable_configuration": ["cpe:/h:zyxel:p-660hw"], "Published": "2008-03-10T13:44:00.000-04:00", "id": "CVE-2008-1254", "Modified": "2008-09-05T17:37:15.287-04:00", "cvss": 6.8, "summary": "Multiple cross-site request forgery (CSRF) vulnerabilities on the ZyXEL P-660HW series router allow remote attackers to (1) change DNS servers and (2) add keywords to the \"bannedlist\" via unspecified vectors."}]
+~~~
+
+Software using cve-search
+-------------------------
+
+* [cve-portal](https://www.github.com/CIRCL/cve-portal) which is a CVE notification portal
+* [cve-search-mt](https://www.github.com/NorthernSec/cve-search-mt) which is a set of management tools for CVE-Search
+* [cve-scan](https://www.github.com/NorthernSec/cve-scan) which is a NMap CVE system scanner
+
+Changelog
+---------
+
+You can find the changelog [here](https://github.com/cve-search/UpdateLog)
+
+License
+-------
+
+cve-search is free software released under the "Modified BSD license"
+
+    Copyright (c) 2012 Wim Remes - https://github.com/wimremes/
+    Copyright (c) 2012-2016 Alexandre Dulaunoy - https://github.com/adulau/
+    Copyright (c) 2015-2017 Pieter-Jan Moreels - https://github.com/pidgeyl/

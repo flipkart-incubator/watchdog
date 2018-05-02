@@ -1,0 +1,19 @@
+{% extends 'layouts/master-page' %}
+{% block title %}CVE's linked by {{field}}{% endblock %}
+{% block head %}
+  <!-- css -->
+  <link href="/static/css/custom/filter.css" rel="stylesheet" />
+{% endblock %}
+{% block content %}
+  <!-- breadcrumb -->
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li class="active">CVEs with {{via4map}}.{{field}}=={{value}}</li>
+  </ol>
+  <table class="searchTable table">
+    <tr><td class="text">Max CVSS</td>   <td>{{stats['maxCVSS']}}</td>
+        <td class="text">Min CVSS</td>   <td>{{stats['minCVSS']}}</td>
+        <td class="text">Total Count</td><td>{{stats['count']}}</td></tr>
+  </table>
+  {% include 'subpages/table.html' %}
+{% endblock %}

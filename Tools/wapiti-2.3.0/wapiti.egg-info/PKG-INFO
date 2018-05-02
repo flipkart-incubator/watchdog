@@ -1,0 +1,29 @@
+Metadata-Version: 1.1
+Name: wapiti
+Version: 2.3.0
+Summary: A web application vulnerability scanner
+Home-page: http://wapiti.sourceforge.net/
+Author: Nicolas Surribas
+Author-email: nicolad.surribas@gmail.com
+License: GPLv2
+Description: Wapiti allows you to audit the security of your web applications.
+        It performs "black-box" scans, i.e. it does not study the source code of the
+        application but will scans the webpages of the deployed webapp, looking for
+        scripts and forms where it can inject data.
+        Once it gets this list, Wapiti acts like a fuzzer, injecting payloads to see
+        if a script is vulnerable.
+Platform: Any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Topic :: Security
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Classifier: Topic :: Software Development :: Testing

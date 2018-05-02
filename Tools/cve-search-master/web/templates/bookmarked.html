@@ -1,0 +1,10 @@
+{% extends 'layouts/master-page' %}
+{% block title %}Bookmarked CVEs{% endblock %}
+{% block content %}
+  <!-- breadcrumb -->
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li class="active">Bookmarked</li>
+  </ol>
+  {% include 'subpages/table.html' %}
+{% endblock %}

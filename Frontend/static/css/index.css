@@ -1,0 +1,114 @@
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+  
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #000;
+      margin: 10px;
+      padding: 20px;
+      color: white;
+    }
+
+    body {
+      background-color: #FFF;
+    }
+
+    .row-ele {
+      height:300px;
+      border: solid 1px black;
+      background-color: black;
+      color: #AAA;
+    }
+
+    .row {
+      padding: 20px 30px 0px 30px;
+    }
+
+    .second-row {
+      padding: 0px 30px 0px 30px;
+      margin-top: -70px;
+    }
+    .row-heading {
+      font-size: 24px;
+      color: #FFF;
+      padding: 40px;
+    }
+
+    .row-heading-value {
+      font-size:70px;
+      font-family: "Arial";
+    }
+
+    a, a:hover {
+      color: white;
+      font-family: "Arial";
+    }
+
+    .high-severe {
+      margin-left: -25px;
+      font-size: 20px;
+    }
+
+    .high-severe th {
+      font-weight: 400;
+      font-family: "Arial";
+
+    }
+    .high-severe td > a {
+      font-family: "Arial";
+    }
+
+    #container{
+      height: 80%; 
+      margin: 0 auto;
+      margin-top: -20px;
+    }
+
+    #container2, #container3 {
+      height: 200px;
+    }
+
+    #tech-data-table{
+      text-align: left;
+      float:left;
+      color:white;
+      font-size:18px;
+      font-family: "Arial";
+      font-weight: 200;
+    }
+
+    #tech-data-table th{
+      color: #FFF; /* green */
+      text-align: left;
+    }
+
+    #tech-data-table th:nth-child(even), td:nth-child(even){
+      padding-left: 10px;
+    }
+
+    td:nth-child(even), th:nth-child(even){
+      text-align: center; 
+    }
+
+    .tech_stack_chart {
+      width: 350px;
+    }
+
+    .row.no-gutter {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .row.no-gutter [class*='col-']:not(:first-child),
+    .row.no-gutter [class*='col-']:not(:last-child) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    .columns {
+      border-right: 1px solid #fff; 
+      border-left: 1px solid #fff;
+    }

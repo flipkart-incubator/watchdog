@@ -1,0 +1,141 @@
+{
+  "Copyright_Date" : {
+    "pattern" : "©s*(\\d{4})",
+    "modifiers" : "i",
+    "showGroup" : true
+  },
+  "Errors" : {
+    "pattern" : "^error: ",
+    "modifiers" : "i"
+  },
+  "Redirect" : {
+    "pattern" : "^redirect: ",
+    "modifiers" : "i"
+  },
+  "Hosting provider" : {
+    "pattern" : "not feasible",
+    "modifiers" : "i"
+  },
+  "Application Complexity" : {
+    "pattern" : "not feasible",
+    "modifiers" : "i"
+  },
+  "SOA Gateway" : {
+    "pattern" : "not feasible",
+    "modifiers" : "i"
+  },
+  "Websphere" : {
+    "pattern" : "wappalyzerDetected: Java",
+    "modifiers" : "i"
+  },
+  ".NET" : {
+    "pattern" : "wappalyzerDetected: Microsoft ASP.NET",
+    "modifiers" : "i"
+  },
+  "PHP" : {
+    "pattern" : "wappalyzerDetected: PHP",
+    "modifiers" : "i"
+  },
+  "Janrain" : {
+    "pattern" : "janrain",
+    "modifiers" : "i"
+  },
+  "Flash" : {
+    "pattern" : "xxxxxxxx",
+    "modifiers" : "i"
+  },
+  "Wordpress" : {
+    "pattern" : "wappalyzerDetected: WordPress",
+    "modifiers" : "i"
+  },
+  "CDN - Akamai/Edgesuite" : {
+    "pattern" : "not_feasible https://github.com/ElbertF/Wappalyzer/issues/132",
+    "modifiers" : "i"
+  },
+  "MSSQL" : {
+    "pattern" : "not feasisble",
+    "modifiers" : "i"
+  },
+  "Oracle" : {
+    "pattern" : "not feasible",
+    "modifiers" : "i"
+  },
+  "Operating System - Windows" : {
+    "pattern" : "wappalyzerDetected: Windows Server",
+    "modifiers" : "i",
+  },
+  "Operating System - Unix" : {
+    "pattern" : "wappalyzerDetected: (Unix|Centos|Redhat)",
+    "modifiers" : "i",
+  },
+  "Security Scan" : {
+    "pattern" : "not feasible",
+    "modifiers" : "i"
+  },
+  "Defects" : {
+    "pattern" : "not feasible at this team",
+    "modifiers" : "i"
+  },
+  "Source Code repository" : {
+    "pattern" : "not feasible",
+    "modifiers" : "i"
+  },
+  "Webtrends" : {
+    "pattern" : "statse\.webtrendslive\.com",
+    "modifiers" : "i"
+  },
+  "Google Analytics" : {
+    "pattern" : "utmac=(UA-[-0-9]+)",
+    "modifiers" : "i"
+  },
+  "Site Design" : {
+    "pattern" : "not feasible",
+    "modifiers" : "i"
+  },
+  "Popups" : {
+    "pattern" : "window.open",
+    "modifiers" : "i"
+  },
+  "Video - possible" : {
+    "pattern" : "\.(wmv|mov|flv|mp4|ogg|webm)",
+    "modifiers" : "i"
+  },
+  "Audio - possible" : {
+    "pattern" : "\.(aac|m4a|mpeg|mp1|mp2|mp3|mpg|mpeg|oga|ogg|wav|webm)"
+    "modifiers" : "i"
+  },
+  "Downloads" : {
+    "pattern" : "Downloads",
+    "modifiers" : "i"
+  },
+  "UGC" : {
+    "pattern" : "not feasible at this time",
+    "modifiers" : "i"
+  },
+  "Twitter Integration" : {
+    "pattern" : "^resourceReceived: .*twitter\.com.*$",
+    "modifiers" : "i"
+  },
+  "Google" : {
+    "pattern" : "not sure which this one is",
+    "modifiers" : "i"
+  },
+  "Facebook" : {
+    "pattern" : "^resourceReceived: .*facebook\.com.*$",
+    "modifiers" : "im"
+  },
+  "Login and Reg - difficult" : {
+    "pattern" : "not feasible yet",
+    "modifiers" : "i"
+  },
+  "Link to other KO sites" : {
+    "pattern" : "not feasible",
+    "modifiers" : "i"
+  },
+  "Search bar" : {
+    "pattern" : "not feaisble at this time",
+    "modifiers" : "i"
+  }
+}
+
+

@@ -1,0 +1,11 @@
+.tab {
+   width: 300px;
+   
+}
+#stats, #plugins, #token_request {
+   float: right;
+   width: calc(100% - 320px);
+}
+#stats, #plugins > table > tbody > tr > td{
+   font-size: 14px;
+}
