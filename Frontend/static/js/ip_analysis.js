@@ -250,7 +250,7 @@ function get_web_vulns(ip){
 		        align: "center",
 		        formatter: function ( data, type, row ) 
         		{
-    				return '<a href="'+data+'" id="myBtn" class="btn btn-primary btn-sm"> Download Report </a>';
+    				return '<a href="'+data+'" target="_blank" id="myBtn" class="btn btn-primary btn-sm"> Download Report </a>';
                 }
 		    },{
 		        field: 'skipfish',
@@ -259,7 +259,7 @@ function get_web_vulns(ip){
 		        align: "center",
 		        formatter: function ( data, type, row ) 
         		{
-    				return '<a href="'+data+'" id="myBtn" class="btn btn-primary btn-sm"> Download Report </a>';
+    				return '<a href="'+data+'" target="_blank" id="myBtn" class="btn btn-primary btn-sm"> Download Report </a>';
                 }
 		    }]
 		});
