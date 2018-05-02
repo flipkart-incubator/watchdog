@@ -5,8 +5,9 @@
 </p>
 
 [![Github Release Version](https://img.shields.io/badge/release-V1.0-green.svg)](https://github.com/flipkart-incubator/watchdog)
-[![Github Release Version](https://img.shields.io/badge/python-2.7-green.svg)](https://github.com/flipkart-incubator/watchdog)
+[![Python Version](https://img.shields.io/badge/python-2.7-green.svg)](https://github.com/flipkart-incubator/watchdog)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://github.com/flipkart-incubator/watchdog/blob/master/LICENSE)
+[![Python Version](https://img.shields.io/badge/Python-3.0-red.svg)
 
 
 ### Tool Description
