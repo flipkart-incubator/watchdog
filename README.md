@@ -75,7 +75,7 @@ f. Once the scan is complete the data will get populated on Watchdog’s UI whic
 ```
 **Install PyV8**
 
-- Incase, if you are facing any issues in installing, follow below steps (workaround, works for Ubuntu 16+)
+Incase, if you are facing any issues in installing, follow below steps (workaround, works for Ubuntu 16+)
 ```
 $ export LC_ALL=C
 $ cd /tmp
@@ -101,7 +101,7 @@ $ sudo ./install.sh
 * During installation, installation script prompts for web root directory. Default directory /var/www/html will be taken automatically if not provided explicitly with-in 10 secs
 Scanning with Watchdog
 ```
-- Watchdog can be run by using following command:
+- Watchdog can be run using following command:
 ```
 $ sudo python run.py
 
@@ -122,26 +122,34 @@ optional arguments:
 ```
 **Configuring CVE-DB**
 
-- Install cve-db using below command (Required to run atleast once)
-- $sudo python run.py -u install
-* map cves with cpes using below command ``(Required to run at-least once and the first run generally takes around 30~45 mins for the entire db to get populated. Recommended time minimum **30mins**)``
+a. Install cve-db using below command (Required to run atleast once)
+```
+$sudo python run.py -u install
+```
 
-- $sudo python run.py -u map
+b. Map cves with cpes using below command [Required to run at-least once and the first run generally takes around 30~45 mins for the entire db to get populated. Recommended time minimum **30mins**]
 
-* you can update the DB by using below command (**optional** / can run this once a month)
+```
+$sudo python run.py -u map
+```
 
+c. Update the DB by using below command (**optional** / can run this once a month)
+
+```
 $sudo python run.py -u update
+```
 
 **Need to add new domains for scanning?**
 
-- Update the scan database with subdomains.txt file with new (sub)domains and run below commands 
+Update the scan database with subdomains.txt file with new (sub)domains and run below commands 
 
+```
 $ sudo python run.py -iA subdomains.txt (for appending targets to existing inventory)
 
 $ sudo python run.py -iR subdomains.txt (for replacing targets in existing inventory)
+```
 
-* Frontend can be accessed from http://localhost/index.php (or replace localhost with your web server address)
-
+* Frontend can be accessed from [http://localhost/index.php] (or replace localhost with your web server address)
 
 ### Dashboard Screenshots 
 
