@@ -182,9 +182,7 @@ Frontend can be accessed from [http://localhost/index.php] (or replace localhost
 **Project Team**
 
 - [Shubham Bansal](https://github.com/shubham643)
-
 - [Prabhav Adhikari](https://github.com/prabhavad)
-
 - [Rohit Agrawal](https://github.com/iirohit)
 
 ### Credits
