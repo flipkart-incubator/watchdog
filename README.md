@@ -160,7 +160,13 @@ $ sudo python run.py -iA subdomains.txt (for appending targets to existing inven
 
 $ sudo python run.py -iR subdomains.txt (for replacing targets in existing inventory)
 ```
-Frontend can be accessed from [http://localhost/index.php] (or replace localhost with your web server address)
+
+### Start Scanning:
+-------------------------
+```
+$ sudo python run.py -s 
+```
+Frontend can be accessed from http://localhost/index.php (or replace localhost with your web server address)
 
 ### Dashboard Screenshots
 -------------------------
