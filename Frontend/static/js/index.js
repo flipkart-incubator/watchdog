@@ -72,8 +72,9 @@ $(document).ready(function(){
     function fill_data_table(data,id,headers){
 	  var tech_stack = document.getElementById(id);
 	  var tbl = document.createElement("table");
+	  tbl.setAttribute('border','1');
 	  var tblBody = document.createElement("tbody");
-	
+
 	  var tr = document.createElement("tr");
 	  var cell1 = document.createElement("th");
 	  cell1.setAttribute('style','width:200px');
