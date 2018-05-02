@@ -9,7 +9,8 @@
 Watchdog is designed considering the use case where it is necessary to know all open services and its corresponding technologies used by the endpoints you own exposed over the Internet. As a company grows it’s foot-prints on the Internet for a product security team it becomes really difficult to maintain an inventory of all the services and technologies which it exposes over the Internet, and on an event of a zero-day outbreak on a particular protocol or a third party product it becomes immensely crucial to know which all endpoints might be affected. WatchDog has the ability to scan all endpoints and perform technology version analysis on the services it detects and also map this information with it's rich [CVE](https://github.com/cve-search/cve-search) database which it maintains and updates locally.
 
 Eg: Consider a test domain ``www.scanthis.com`` 
-Watchdog will perform following task on this domain:
+watchdog will perform following task on this domain:
+
 a. Scan the domain to find visible open ports. 
 ```
 {e.g. output}
@@ -31,7 +32,7 @@ c. Map the tech-stack versions with known vulnerabilities found in the master CV
 
 d. If step 1 detects any http services running **(80/443)** it will go ahead and perform a web application security scanning with wapiti and Skipfish.
 
-f. Once the scan is complete the data will get populated on Watchdog’s UI which can be found at ``http://localhost/index.php``
+f. Once the scan is complete the data will get populated on Watchdog’s UI which can be found @ http://localhost/index.php
 
 ### Installing watchdog
 
