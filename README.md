@@ -1,9 +1,11 @@
-# WATCHDOG &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=WatchDog%20-%20An%20intelligent%20security%20scanner%20and%20a%20vulnerability%20Management%20Tool&url=https://github.com/flipkart-incubator/watchdog&via=prajalkulkarni&hashtags=security,infosec,productsecurity,bugbounty)
+# Watchdog &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=WatchDog%20-%20An%20intelligent%20security%20scanner%20and%20a%20vulnerability%20Management%20Tool&url=https://github.com/flipkart-incubator/watchdog&via=prajalkulkarni&hashtags=security,infosec,productsecurity,bugbounty)
 
 [![Github Release Version](https://img.shields.io/badge/release-V1.0-green.svg)](https://github.com/flipkart-incubator/watchdog)
 [![Github Release Version](https://img.shields.io/badge/python-2.7-green.svg)](https://github.com/flipkart-incubator/watchdog)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://github.com/flipkart-incubator/watchdog/blob/master/LICENSE)
 
+
+### Tool Description
 
 **Watchog** is an integration of open source security tools aimed to provide a holistic security view for a given domain/IP. The way Watchdog is built it can be used by product security teams, red teams and also by bug bounty hunters to get a 360 degree view of any Internet property it scans. 
 Given a list of domains/IP it has the capability to perform a network scan, feed the output to open source web app scanners like Google's skip-fish and wapiti, perform tech stack analysis and determine if the stack has any known CVE’s.
@@ -12,8 +14,33 @@ Watchdog is designed considering the use case where it is necessary to know all 
 
 WatchDog has the ability to scan all endpoints and perform technology version analysis on the services it detects and also map this information with it's rich [CVE](https://github.com/cve-search/cve-search) database which it maintains and updates locally.
 
-Eg: Consider a test domain **www.scanthis.com**
-watchdog will perform following task on this domain:
+### Scan Engine:
+* Nmap
+* Skipfish
+* Wapiti
+* BuiltWith
+* Phantalyzer
+* Wappalyzer
+
+Databases and collections
+-------------------------
+The MongoDB database is called cvedb and there are 11 collections:
+
+* cves (Common Vulnerabilities and Exposure items) - source NVD NIST
+* cpe (Common Platform Enumeration items) - source NVD NIST
+* cwe (Common Weakness Enumeration items) - source NVD NIST
+* capec (Common Attack Pattern Enumeration and Classification) - source NVD NIST
+* ranking (ranking rules per group) - local cve-search
+* d2sec (Exploitation reference from D2 Elliot Web Exploitation Framework) - source d2sec.com
+* [MITRE Reference Key/Maps](https://cve.mitre.org/data/refs/) - source MITRE reference Key/Maps
+* ms - (Microsoft Bulletin (Security Vulnerabilities and Bulletin)) - source [Microsoft](http://www.microsoft.com/en-us/download/details.aspx?id=36982)
+* exploitdb (Offensive Security - Exploit Database) - source [offensive security](https://github.com/offensive-security/exploit-database)
+* info (metadata of each collection like last-modified) - local cve-search
+* via4 [VIA4CVE](https://github.com/cve-search/VIA4CVE) cross-references.
+
+**What happens when you run watchdog on** www.scanthis.com
+
+Watchdog will perform following task on this domain:
 
 a. Scan the domain to find visible open ports. 
 ```
@@ -91,17 +118,21 @@ optional arguments:
                         to configure or update CVE database
   -s, --start           to start scaning engine
 ```
-**Configuring CVE-DB **
+**Configuring CVE-DB**
 
 - Install cve-db using below command (Required to run atleast once)
-$sudo python run.py -u install
+- $sudo python run.py -u install
 * map cves with cpes using below command ``(Required to run at-least once and the first run generally takes around 30~45 mins for the entire db to get populated. Recommended time minimum **30mins**)``
-$sudo python run.py -u map
-* you can update the DB by using below command (**optional** / can run this once a month)
-$sudo python run.py -u update
-Need to add new domains for scanning?
 
-**Update the scan database with subdomains.txt file with new (sub)domains and run below commands**
+- $sudo python run.py -u map
+
+* you can update the DB by using below command (**optional** / can run this once a month)
+
+$sudo python run.py -u update
+
+**Need to add new domains for scanning?**
+
+- Update the scan database with subdomains.txt file with new (sub)domains and run below commands 
 
 $ sudo python run.py -iA subdomains.txt (for appending targets to existing inventory)
 
