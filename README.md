@@ -11,53 +11,64 @@ Watchdog is designed considering the use case where it is necessary to know all 
 Eg: Consider a test domain ``www.scanthis.com`` 
 Watchdog will perform following task on this domain:
 a. Scan the domain to find visible open ports. 
+```
 {e.g. output}
 * 80  [Apache httpd 2.2.22 ((Debian))]
 * 443 [Apache httpd 2.2.22 ((Debian))]
 * 22  [OpenSSH 5.8p1_hpn13v10 (FreeBSD 20110102; protocol 2.0)]
 * 21  [ProFTPD 1.3.3e]
 * 993 [Plesk Courier imapd]
-
+```
 b. Perform tech-stack fingerprinting and identify all front-end and service level technologies running.
+```
 * jquery [1.2]
 * twitter bootstrap [2.3]
 * font awesome [**]
 * google analytics [**]
 * piwik []
+```
+c. Map the tech-stack versions with known vulnerabilities found in the master CVE database.``{e.g. **jquery 1.2** version has multiple CVE’s }``
 
-c. Map the tech-stack versions with known vulnerabilities found in the master CVE database.{e.g. jquery 1.2 version has multiple CVE’s }
+d. If step 1 detects any http services running **(80/443)** it will go ahead and perform a web application security scanning with wapiti and Skipfish.
 
-d. If step 1 detects any http services running (80/443) it will go ahead and perform a web application security scanning with wapiti and Skipfish.
+f. Once the scan is complete the data will get populated on Watchdog’s UI which can be found at ``http://localhost/index.php``
 
-f. Once the scan is complete the data will get populated on Watchdog’s UI which can be found at http://localhost/index.php
-
-Installing watchdog
+***Installing watchdog***
+```
 * prerequisites & softwares
 * Ubuntu 16.04+
 * Apache2 + PHP5.6 + Mongo
 * PyV8
-* clone watchdog repository
+```
+**** Clone watchdog repository***
+```
 $ git clone https://github.fkinternal.com/flipkart-incubator/watchdog.git
 $ cd watchdog
-* Install PyV8
+```
+***Install PyV8***
     * incase, if you are facing any issues in installing, follow below steps (workaround, works for Ubuntu 16+)
-* $ export LC_ALL=C
+```
+$ export LC_ALL=C
 $ cd tmp
 $ pip install -e git://github.com/brokenseal/PyV8-OS-X#egg=pyv8
 $ git clone https://github.com/emmetio/pyv8-binaries.git
 $ unzip pyv8-binaries/pyv8-linux64.zip (or unzip appropriate zip file based on kernal version)
 $ mv *PyV8* src/pyv8/pyv8/.
-* Update your subdomains.txt file with your target subdomains
-    * ex:
-             scanme.nmap.org
+```
+***Update the subdomains.txt file with your target subdomains***
+```    * ex:
+            scanme.nmap.org
             testphp.vulnweb.com
-* Run installation script
+  ```
+***Run the installation script below***
+```
 $ sudo chmod +x install.sh
 $ sudo ./install.sh
 * During installation, installation script prompts for web root directory. Default directory /var/www/html will be taken automatically if not provided explicitly with-in 10 secs
 Scanning with Watchdog
-
-* watchdog can be run by using following command
+```
+- Watchdog can be run by using following command
+```
 $ sudo python run.py
 
 root@projectWatchdog:/watchdog# python run.py
@@ -74,41 +85,38 @@ optional arguments:
   -u {install,map,update}, --updateCVEs {install,map,update}
                         to configure or update CVE database
   -s, --start           to start scaning engine
+```
+***Configuring CVE-DB ***
 
-Configuring CVE-DB
-
-* install cve db using below command (Required to run atleast once)
+- Install cve-db using below command (Required to run atleast once)
 $sudo python run.py -u install
-* map cves with cpes using below command (Required to run at-least once and the first run generally takes around 30~45 mins for the entire db to get populated. Recommended time minimum `30mins`)
+* map cves with cpes using below command ``(Required to run at-least once and the first run generally takes around 30~45 mins for the entire db to get populated. Recommended time minimum **30mins**)``
 $sudo python run.py -u map
-* you can update the DB by using below command (optional/ can run this once a month)
+* you can update the DB by using below command (**optional** / can run this once a month)
 $sudo python run.py -u update
 Need to add new domains for scanning?
 
-* update subdomains.txt file with new (sub)domains and run below commands
+**Update the scan database with subdomains.txt file with new (sub)domains and run below commands**
 $ sudo python run.py -iA subdomains.txt (for appending targets to existing inventory)
 $ sudo python run.py -iR subdomains.txt (for replacing targets in existing inventory)
 * Frontend can be accessed from http://localhost/index.php (or replace localhost with your web server address)
 
-Lead Developer
+**Lead Developer**
+- Mohan Krushna K (mohan.kk@flipkart.com)
 
-* Mohan Krushna K (mohan.kk@flipkart.com)
+**Project Lead**
+-Prajal Kulkarni (https://twitter.com/prajalkulkarni
 
-Project Lead
-
-* Prajal Kulkarni (https://twitter.com/prajalkulkarni
-
-Project Team:
-
-* [Shubham Bansal] (https://github.com/shubham643)
-* [Prabhav Adhikari] (https://github.com/prabhavad)
-* [Rohit Agrawal] (https://github.com/iirohit)
+**Project Team**
+-[Shubham Bansal] (https://github.com/shubham643)
+-[Prabhav Adhikari] (https://github.com/prabhavad)
+-[Rohit Agrawal] (https://github.com/iirohit)
 
 Credits
 
-* Flipkart Security Team
-* NMAP
-* Wapiti
-* Skipfish
-* Phantalyser
-* CVE Search
+-Flipkart Security Team
+-NMAP
+-[Wapiti] (http://wapiti.sourceforge.net/)
+-Skipfish
+-[Phantalyser] (https://github.com/mlconnor/phantalyzer)
+-[CVE Search](https://github.com/cve-search/cve-search)
