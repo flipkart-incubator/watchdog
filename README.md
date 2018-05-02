@@ -26,7 +26,7 @@ WatchDog has the ability to scan all endpoints and perform technology version an
 
 ### Databases and collections:
 -------------------------
-Watchdog installs a local copy of CVE database which is a collection of following DB's :
+Watchdog installs a local copy of [CVE database](https://github.com/cve-search/cve-search) which is a collection of following DB's :
 
 * cves (Common Vulnerabilities and Exposure items) - source NVD NIST
 * cpe (Common Platform Enumeration items) - source NVD NIST
@@ -163,7 +163,8 @@ $ sudo python run.py -iR subdomains.txt (for replacing targets in existing inven
 
 ![alt text](https://raw.githubusercontent.com/flipkart-incubator/watchdog/master/Frontend/static/images/ip-details.png)
 
-
+### Contribution:
+-------------------------
 **Lead Developer**
 
 - Mohan Krushna K (mohan.kk@flipkart.com)
