@@ -15,6 +15,7 @@ Watchdog is designed considering the use case where it is necessary to know all 
 WatchDog has the ability to scan all endpoints and perform technology version analysis on the services it detects and also map this information with it's rich [CVE](https://github.com/cve-search/cve-search) database which it maintains and updates locally.
 
 ### Scan Engine:
+-------------------------
 * Nmap
 * Skipfish
 * Wapiti
@@ -22,7 +23,7 @@ WatchDog has the ability to scan all endpoints and perform technology version an
 * Phantalyzer
 * Wappalyzer
 
-Databases and collections
+### Databases and collections:
 -------------------------
 The MongoDB database is called cvedb and there are 11 collections:
 
@@ -38,7 +39,8 @@ The MongoDB database is called cvedb and there are 11 collections:
 * info (metadata of each collection like last-modified) - local cve-search
 * via4 [VIA4CVE](https://github.com/cve-search/VIA4CVE) cross-references.
 
-**What happens when you run watchdog on** www.scanthis.com
+### What happens when you run watchdog: 
+Test domain: www.scanthis.com
 
 Watchdog will perform following task on this domain:
 
