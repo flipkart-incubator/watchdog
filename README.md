@@ -142,6 +142,16 @@ $ sudo python run.py -iR subdomains.txt (for replacing targets in existing inven
 
 * Frontend can be accessed from http://localhost/index.php (or replace localhost with your web server address)
 
+
+### Dashboard Screenshots 
+
+![alt text](https://raw.githubusercontent.com/flipkart-incubator/watchdog/master/Frontend/static/images/watchdog-dashboard.png)
+
+![alt text](https://raw.githubusercontent.com/flipkart-incubator/watchdog/master/Frontend/static/images/external-assets.png)
+
+![alt text](https://raw.githubusercontent.com/flipkart-incubator/watchdog/master/Frontend/static/images/ip-details.png)
+
+
 **Lead Developer**
 
 - Mohan Krushna K (mohan.kk@flipkart.com)
@@ -152,11 +162,11 @@ $ sudo python run.py -iR subdomains.txt (for replacing targets in existing inven
 
 **Project Team**
 
-- [Shubham Bansal] (https://github.com/shubham643)
+* [Shubham Bansal] (https://github.com/shubham643)
 
-- [Prabhav Adhikari] (https://github.com/prabhavad)
+* [Prabhav Adhikari] (https://github.com/prabhavad)
 
-- [Rohit Agrawal] (https://github.com/iirohit)
+* [Rohit Agrawal] (https://github.com/iirohit)
 
 ### Credits
 - Flipkart Security Team
