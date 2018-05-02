@@ -74,7 +74,7 @@
 <br/><br/>
 <footer class="container-fluid">
   <div class="footer-copyright py-3 text-center">
-      Contant @ <a href="mailto:security@flipkart.com"> Flipkart Security </a>
+      Contact @ <a href="mailto:security@flipkart.com"> Flipkart Security </a>
   </div>
 </footer>
 
