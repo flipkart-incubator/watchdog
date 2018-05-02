@@ -163,7 +163,7 @@ Frontend can be accessed from [http://localhost/index.php] (or replace localhost
 
 ### Dashboard Screenshots
 -------------------------
-
+![alt text](https://raw.githubusercontent.com/flipkart-incubator/watchdog/master/Frontend/static/images/dashboard.png)
 
 ![alt text](https://raw.githubusercontent.com/flipkart-incubator/watchdog/master/Frontend/static/images/external-assets.png)
 
