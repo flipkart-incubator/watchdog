@@ -29,11 +29,11 @@ b. Perform tech-stack fingerprinting and identify all front-end and service leve
 ```
 c. Map the tech-stack versions with known vulnerabilities found in the master CVE database.``{e.g. **jquery 1.2** version has multiple CVE’s }``
 
-d. If step 1 detects any http services running **(80/443)** it will go ahead and perform a web application security scanning with wapiti and Skipfish.
+d. If step 1 detects any http services running ***(80/443)*** it will go ahead and perform a web application security scanning with wapiti and Skipfish.
 
 f. Once the scan is complete the data will get populated on Watchdog’s UI which can be found at ``http://localhost/index.php``
 
-***Installing watchdog***
+**Installing watchdog**
 ```
 * prerequisites & softwares
 * Ubuntu 16.04+
