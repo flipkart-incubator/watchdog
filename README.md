@@ -87,7 +87,7 @@ $ git clone https://github.com/emmetio/pyv8-binaries.git
 $ unzip pyv8-binaries/pyv8-linux64.zip (or unzip appropriate zip file based on kernal version)
 $ mv *PyV8* src/pyv8/pyv8/.
 ```
-**Clone watchdog repository**
+**Clone Watchdog repository**
 ```
 $ git clone https://github.fkinternal.com/flipkart-incubator/watchdog.git
 $ cd watchdog
@@ -101,9 +101,10 @@ testphp.vulnweb.com
 ```
 $ sudo chmod +x install.sh
 $ sudo ./install.sh
-* During installation, installation script prompts for web root directory. Default directory /var/www/html will be taken automatically if not provided explicitly with-in 10 secs
-Scanning with Watchdog
+* During installation, script prompts for web root directory. Default directory /var/www/html will be taken automatically if not provided explicitly with-in 10 secs
 ```
+**Scanning with Watchdog:**
+
 - Watchdog can be run using following command:
 ```
 $ sudo python run.py
