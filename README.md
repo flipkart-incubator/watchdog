@@ -65,11 +65,13 @@ b. Perform tech-stack fingerprinting and identify all front-end and service leve
 * piwik []
 ```
 c. Map the tech-stack versions with known vulnerabilities found in the master CVE database.
-``
-- {e.g. jquery 1.8.1 version has multiple CVE's - CVE-2012-6708, CVE-2015-9251}
-- {e.g. php 5.5.9 version has multiple CVE's - CVE-2016-4073, CVE-2015-8835}
-- {e.g. apache 2.4.7 version has multiple CVE's - CVE-2017-7679, CVE-2014-0226}
-``
+```
+{e.g. jquery 1.8.1 version has multiple CVE's - CVE-2012-6708, CVE-2015-9251}
+
+{e.g. php 5.5.9 version has multiple CVE's - CVE-2016-4073, CVE-2015-8835}
+
+{e.g. apache 2.4.7 version has multiple CVE's - CVE-2017-7679, CVE-2014-0226}
+```
 
 
 d. If step 1 detects any http services running *(80/443)* it will go ahead and perform a web application security scanning with wapiti and Skipfish.
