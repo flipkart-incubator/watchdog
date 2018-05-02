@@ -29,21 +29,15 @@ b. Perform tech-stack fingerprinting and identify all front-end and service leve
 ```
 c. Map the tech-stack versions with known vulnerabilities found in the master CVE database.``{e.g. **jquery 1.2** version has multiple CVE’s }``
 
-d. If step 1 detects any http services running ***(80/443)*** it will go ahead and perform a web application security scanning with wapiti and Skipfish.
+d. If step 1 detects any http services running **(80/443)** it will go ahead and perform a web application security scanning with wapiti and Skipfish.
 
 f. Once the scan is complete the data will get populated on Watchdog’s UI which can be found at ``http://localhost/index.php``
 
-**Installing watchdog**
+###Installing watchdog
+
+**Prerequisites & Softwares**
 ```
-* prerequisites & softwares
-* Ubuntu 16.04+
-* Apache2 + PHP5.6 + Mongo
-* PyV8
-```
-** Clone watchdog repository**
-```
-$ git clone https://github.fkinternal.com/flipkart-incubator/watchdog.git
-$ cd watchdog
+- Ubuntu 16.04+
 ```
 **Install PyV8**
 
@@ -56,10 +50,15 @@ $ git clone https://github.com/emmetio/pyv8-binaries.git
 $ unzip pyv8-binaries/pyv8-linux64.zip (or unzip appropriate zip file based on kernal version)
 $ mv *PyV8* src/pyv8/pyv8/.
 ```
+**Clone watchdog repository**
+```
+$ git clone https://github.fkinternal.com/flipkart-incubator/watchdog.git
+$ cd watchdog
+```
 **Update the subdomains.txt file with your target subdomains**
-```    * ex:
-            scanme.nmap.org
-            testphp.vulnweb.com
+```e.g.:
+scanme.nmap.org
+testphp.vulnweb.com
   ```
 **Run the installation script below**
 ```
@@ -68,7 +67,7 @@ $ sudo ./install.sh
 * During installation, installation script prompts for web root directory. Default directory /var/www/html will be taken automatically if not provided explicitly with-in 10 secs
 Scanning with Watchdog
 ```
-- Watchdog can be run by using following command
+- Watchdog can be run by using following command:
 ```
 $ sudo python run.py
 
