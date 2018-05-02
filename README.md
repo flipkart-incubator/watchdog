@@ -100,7 +100,7 @@ $ mv *PyV8* src/pyv8/pyv8/.
 ```
 **Clone Watchdog repository**
 ```
-$ git clone https://github.fkinternal.com/flipkart-incubator/watchdog.git
+$ git clone https://github.com/flipkart-incubator/watchdog.git
 $ cd watchdog
 ```
 **Update the subdomains.txt file with your target subdomains**
