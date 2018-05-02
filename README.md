@@ -40,13 +40,14 @@ f. Once the scan is complete the data will get populated on Watchdog’s UI whic
 * Apache2 + PHP5.6 + Mongo
 * PyV8
 ```
-**** Clone watchdog repository***
+** Clone watchdog repository**
 ```
 $ git clone https://github.fkinternal.com/flipkart-incubator/watchdog.git
 $ cd watchdog
 ```
-***Install PyV8***
-    * incase, if you are facing any issues in installing, follow below steps (workaround, works for Ubuntu 16+)
+**Install PyV8**
+
+- Incase, if you are facing any issues in installing, follow below steps (workaround, works for Ubuntu 16+)
 ```
 $ export LC_ALL=C
 $ cd tmp
@@ -55,12 +56,12 @@ $ git clone https://github.com/emmetio/pyv8-binaries.git
 $ unzip pyv8-binaries/pyv8-linux64.zip (or unzip appropriate zip file based on kernal version)
 $ mv *PyV8* src/pyv8/pyv8/.
 ```
-***Update the subdomains.txt file with your target subdomains***
+**Update the subdomains.txt file with your target subdomains**
 ```    * ex:
             scanme.nmap.org
             testphp.vulnweb.com
   ```
-***Run the installation script below***
+**Run the installation script below**
 ```
 $ sudo chmod +x install.sh
 $ sudo ./install.sh
@@ -86,7 +87,7 @@ optional arguments:
                         to configure or update CVE database
   -s, --start           to start scaning engine
 ```
-***Configuring CVE-DB ***
+**Configuring CVE-DB **
 
 - Install cve-db using below command (Required to run atleast once)
 $sudo python run.py -u install
@@ -97,8 +98,11 @@ $sudo python run.py -u update
 Need to add new domains for scanning?
 
 **Update the scan database with subdomains.txt file with new (sub)domains and run below commands**
+
 $ sudo python run.py -iA subdomains.txt (for appending targets to existing inventory)
+
 $ sudo python run.py -iR subdomains.txt (for replacing targets in existing inventory)
+
 * Frontend can be accessed from http://localhost/index.php (or replace localhost with your web server address)
 
 **Lead Developer**
@@ -107,15 +111,15 @@ $ sudo python run.py -iR subdomains.txt (for replacing targets in existing inven
 
 **Project Lead**
 
--Prajal Kulkarni (https://twitter.com/prajalkulkarni
+- Prajal Kulkarni (https://twitter.com/prajalkulkarni
 
 **Project Team**
 
--[Shubham Bansal] (https://github.com/shubham643)
+- [Shubham Bansal] (https://github.com/shubham643)
 
--[Prabhav Adhikari] (https://github.com/prabhavad)
+- [Prabhav Adhikari] (https://github.com/prabhavad)
 
--[Rohit Agrawal] (https://github.com/iirohit)
+- [Rohit Agrawal] (https://github.com/iirohit)
 
 ### Credits
 - Flipkart Security Team
