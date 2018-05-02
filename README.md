@@ -152,9 +152,9 @@ c. Update the DB by using below command (**optional** / can run this once a mont
 $sudo python run.py -u update
 ```
 
-**Need to add new domains for scanning?**
+**Adding new domains to the scan database:**
 
-Update the scan database with subdomains.txt file with new (sub)domains and run below commands 
+Update the scan database with subdomains.txt file with new domains/IP's and run below commands 
 
 ```
 $ sudo python run.py -iA subdomains.txt (for appending targets to existing inventory)
