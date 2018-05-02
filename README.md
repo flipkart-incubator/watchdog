@@ -6,6 +6,7 @@
 
 
 ### Tool Description
+-------------------------
 
 **Watchog** is an integration of open source security tools aimed to provide a holistic security view for a given domain/IP. The way Watchdog is built it can be used by product security teams, red teams and also by bug bounty hunters to get a 360 degree view of any Internet property it scans. 
 Given a list of domains/IP it has the capability to perform a network scan, feed the output to open source web app scanners like Google's skip-fish and wapiti, perform tech stack analysis and determine if the stack has any known CVE’s.
@@ -40,6 +41,7 @@ The MongoDB database is called cvedb and there are 11 collections:
 * via4 [VIA4CVE](https://github.com/cve-search/VIA4CVE) cross-references.
 
 ### What happens when you run watchdog: 
+-------------------------
 Test domain: www.scanthis.com
 
 Watchdog will perform following task on this domain:
@@ -63,17 +65,18 @@ b. Perform tech-stack fingerprinting and identify all front-end and service leve
 ```
 c. Map the tech-stack versions with known vulnerabilities found in the master CVE database.``{e.g. jquery 1.2 version has multiple CVE’s }``
 
-d. If step 1 detects any http services running **(80/443)** it will go ahead and perform a web application security scanning with wapiti and Skipfish.
+d. If step 1 detects any http services running *(80/443)* it will go ahead and perform a web application security scanning with wapiti and Skipfish.
 
 f. Once the scan is complete the data will get populated on Watchdog’s UI which can be found at http://localhost/index.php
 
-### Installing watchdog
+### Installing watchdog:
+-------------------------
 
 **Prerequisites & Softwares**
 ```
 - Ubuntu 16.04+
 ```
-**Install PyV8**
+**Install PyV8:**
 
 Incase, if you are facing any issues in installing, follow below steps (workaround, works for Ubuntu 16+)
 ```
@@ -151,8 +154,8 @@ $ sudo python run.py -iR subdomains.txt (for replacing targets in existing inven
 
 * Frontend can be accessed from [http://localhost/index.php] (or replace localhost with your web server address)
 
-### Dashboard Screenshots 
-
+### Dashboard Screenshots
+-------------------------
 ![alt text](https://raw.githubusercontent.com/flipkart-incubator/watchdog/master/Frontend/static/images/watchdog-dashboard.png)
 
 ![alt text](https://raw.githubusercontent.com/flipkart-incubator/watchdog/master/Frontend/static/images/external-assets.png)
@@ -177,6 +180,7 @@ $ sudo python run.py -iR subdomains.txt (for replacing targets in existing inven
 * [Rohit Agrawal] (https://github.com/iirohit)
 
 ### Credits
+-------------------------
 - Flipkart Security Team
 - NMAP
 - [Wapiti](http://wapiti.sourceforge.net/)
