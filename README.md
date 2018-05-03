@@ -85,6 +85,8 @@ f. Once the scan is complete the data will get populated on Watchdog’s UI whic
 ### Installing Watchdog:
 -------------------------
 
+[Quick Installation Video Link](https://www.youtube.com/watch?v=yonQwYvqpFw&feature=youtu.be)
+
 **Prerequisites & Softwares**
 ```
 - Ubuntu 16.04+
