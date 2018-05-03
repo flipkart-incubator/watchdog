@@ -14,16 +14,12 @@ def config_db(argv):
 
 	print web_dir
 	db.external.insert_one({
-		'SELF_SERVE_PATH_SKIPFISH': web_dir+'/reports/selfServeOutputSkipfish/',
-		'SELF_SERVE_DATABASE': 'selfTestingExternal', 
 		'PATH_WAPITI': web_dir+'/reports/outputWapiti/', 
 		'DATABASE': 'testingExternal', 
-		'SELF_SERVE_PATH_WAPITI': web_dir+'/reports/selfServeOutputWapiti/', 
 		'TIMEOUT_VUL': '180', 
 		'TIMEOUT_TECH': '30', 
 		'PATH_LOGFILE': 'external.log', 
 		'PATH_SKIPFISH': web_dir+'/reports/outputSkipfish/', 
-		'SELF_SERVE_PATH_LOGFILE': 'selfServe.log'
 	})
 
 	db.internal.insert_one({
