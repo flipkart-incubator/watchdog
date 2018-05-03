@@ -91,7 +91,7 @@ f. Once the scan is complete the data will get populated on Watchdog’s UI whic
 ```
 **Install PyV8:**
 
-Incase, if you are facing any issues in installing, follow below steps (workaround, works for Ubuntu 16+)
+Incase of any issues while installing, follow the below steps (workaround for Ubuntu 16+)
 ```
 $ export LC_ALL=C
 $ cd /tmp
