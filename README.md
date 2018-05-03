@@ -14,12 +14,12 @@
 ### Tool Description
 -------------------------
 
-**Watchog** is an integration of open source security tools aimed to provide a holistic security view for a given domain/IP. The way Watchdog is built it can be used by product security teams, red teams and also by bug bounty hunters to get a 360 degree view of any Internet property it scans. 
-Given a list of domains/IP it has the capability to perform a network scan, feed the output to open source web app scanners like Google's skip-fish and wapiti, perform tech stack analysis and determine if the stack has any known CVE’s.
+**Watchog** is an integration of open source security tools aimed to provide a holistic security view for a given domain/IP. The way Watchdog is built, it can be used by product security teams, red teams and also by bug bounty hunters to get a 360° view of any Internet property it scans. 
+Given a list of domains/IP's it has the capability to perform a network scan, feed the output to open source web app scanners like Google's skip-fish and wapiti, perform tech stack analysis and determine if the stack has any known CVE’s.
 
-Watchdog is designed considering the use case where it is necessary to know all open services and its corresponding technologies used by the endpoints you own exposed over the Internet. As a company grows it’s foot-prints on the Internet for a product security team it becomes really difficult to maintain an inventory of all the services and technologies which it exposes over the Internet, and on an event of a zero-day outbreak on a particular protocol or a third party product it becomes immensely crucial to know which all endpoints might be affected.
+Watchdog is designed considering the use case necessary to know all open services and its corresponding technologies for the endpoints you own, exposed over the Internet. As a company grows, it’s foot-prints grow on the World Wide Web leaving it's product security team with herculean task of maintaining an inventory of all the services and technologies exposed. This becomes further crucial at the event of a zero-day outbreak for a particular protocol or a third party product which might affect public endpoints of the company
 
-WatchDog has the ability to scan all endpoints and perform technology version analysis on the services it detects and also map this information with it's rich [CVE](https://github.com/cve-search/cve-search) database which it maintains and updates locally.
+WatchDog has the ability to scan all endpoints and perform technology version analysis on the services it detects and map this information with it’s rich [CVE](https://github.com/cve-search/cve-search) database maintained and updated locally.
 
 ### Scan Engine:
 -------------------------
