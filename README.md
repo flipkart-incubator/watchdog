@@ -1,7 +1,7 @@
 # Watchdog &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=WatchDog%20-%20An%20intelligent%20security%20scanner%20and%20a%20vulnerability%20Management%20Tool&url=https://github.com/flipkart-incubator/watchdog&via=prajalkulkarni&hashtags=security,infosec,productsecurity,bugbounty)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/flipkart-incubator/watchdog/master/Frontend/static/images/dog.png?sanitize=true"  height="275" width="275"alt="Watchdog"/>
+  <img src="https://raw.githubusercontent.com/flipkart-incubator/watchdog/master/Frontend/static/images/watchdog-logo.png?sanitize=true"  height="400" width="400"alt="Watchdog"/>
 </p>
 
 [![Github Release Version](https://img.shields.io/badge/release-V1.0-green.svg)](https://github.com/flipkart-incubator/watchdog)
