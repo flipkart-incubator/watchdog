@@ -26,6 +26,27 @@ def config_db(argv):
 		'SELF_SERVE_PATH_LOGFILE': 'selfServe.log'
 	})
 
+	db.internal.insert_one({
+	   'REPO_PATH':"",
+	   'SCALE_CRITICAL_VUL_CVE_EXTERNAL':8.3,
+	   'SELF_SERVE_DATABASE':'Self_Serve_Internal_Testing',
+	   'SCALE_MEDIUM_VUL_CVE_EXTERNAL':5.0,
+	   'DATABASE':'Internal_Testing',
+	   'ORGANISATION':'<>',
+	   'GIT_TOKEN':'<>:<>',
+	   'SCALE_MEDIUM_VUL_CVE_INTERNAL':5.0,
+	   'DEPENDENCY_PATH_LOGFILE':'dependency_log.log',
+	   'SELF_SERVE_SOURCE_PATH_LOGFILE':'self_serve_source_log.log',
+	   'SELF_SERVE_DEPENDENCY_PATH_LOGFILE':'self_serve_dependency_log.log',
+	   'SOURCE_PATH_LOGFILE':'source_log.log',
+	   'SELF_SERVE_TIME_OUT':30,
+	   'TIME_OUT':30,
+	   'SCALE_HIGH_VUL_CVE_INTERNAL':7.5,
+	   'SCALE_HIGH_VUL_CVE_EXTERNAL':7.5,
+	   'SCALE_CRITICAL_VUL_CVE_INTERNAL':8.3,
+	   'SCALE_HIGH_VUL_REPO':8.3
+	})
+
 	return web_dir
 
 if __name__ == '__main__':
