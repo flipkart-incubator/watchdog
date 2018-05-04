@@ -186,6 +186,13 @@ Frontend can be accessed from http://localhost/index.php (or replace localhost w
 
 ![alt text](https://raw.githubusercontent.com/flipkart-incubator/watchdog/master/Frontend/static/images/ip-details.png)
 
+### Future Enhancements
+-------------------------
+
+- The next release of watchdog will also support code scanning. Given a organisation's github link it will perform vulnerability analysis mapping with CVE database.
+- More tools to get added to the external scanning engine.
+
+
 ### Contribution:
 -------------------------
 **Lead Developer**
