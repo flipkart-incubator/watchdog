@@ -8,6 +8,7 @@
 [![Python Version](https://img.shields.io/badge/python-2.7-green.svg)](https://github.com/flipkart-incubator/watchdog)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://github.com/flipkart-incubator/watchdog/blob/master/LICENSE)
 [![Github Release Version](https://img.shields.io/badge/Python-3.0-red.svg)](https://github.com/flipkart-incubator/watchdog)
+[![Follow Watchdog on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Follow%20%40watchdog)](https://twitter.com/intent/user?screen_name=watchdogtool "Follow watchdog on Twitter")
 
 
 
