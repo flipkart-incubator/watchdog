@@ -65,8 +65,18 @@ def portScan(ip,domain,type):
 					for ch in checking:
 						if ports[i] == ch.encode('ascii','ignore') and version[i] == checking[ch]['version'].encode('ascii','ignore'):
 							false_positive[i] = checking[ch]['false_positive']
-				if false_positive[i] == "":
+				try:
+					if false_positive[i] == "":
+						false_positive[i] = "0"
+				except:
 					false_positive[i] = "0"
+
+				try:
+					if not version[i]:
+						version[i] = ""
+				except:
+					version[i] = ""
+
 				services.update({"ip":ip},{"$set":{ports[i]:{"version":version[i],"false_positive":false_positive[i]}}})
 				logging.info(str(ports[i])+" has version "+str(version[i]))
 		else:   # updating domain if it is not present before
