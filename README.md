@@ -100,7 +100,7 @@ $ export LC_ALL=C
 $ cd /tmp
 $ pip install -e git://github.com/brokenseal/PyV8-OS-X#egg=pyv8
 $ git clone https://github.com/emmetio/pyv8-binaries.git
-$ unzip pyv8-binaries/pyv8-linux64.zip (or unzip appropriate zip file based on kernal version)
+$ unzip pyv8-binaries/pyv8-linux64.zip (or unzip appropriate zip file based on kernel version)
 $ mv *PyV8* src/pyv8/pyv8/.
 ```
 **Clone Watchdog repository**
@@ -139,11 +139,11 @@ optional arguments:
                         to replace targets in IP Inventory
   -u {install,map,update}, --updateCVEs {install,map,update}
                         to configure or update CVE database
-  -s, --start           to start scaning engine
+  -s, --start           to start scanning engine
 ```
 **Configuring CVE-DB**
 
-a. Install cve-db using below command (Required to run atleast once)
+a. Install cve-db using below command (Required to run at least once)
 ```
 $sudo python run.py -u install
 ```
@@ -218,4 +218,3 @@ Frontend can be accessed from http://localhost/index.php (or replace localhost w
 - Skipfish
 - [Phantalyser](https://github.com/mlconnor/phantalyzer)
 - [CVE Search](https://github.com/cve-search/cve-search)
-
