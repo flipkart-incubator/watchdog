@@ -98,7 +98,7 @@ Incase of any issues while installing, follow the below steps (workaround for Ub
 ```
 $ export LC_ALL=C
 $ cd /tmp
-$ pip install -e git://github.com/brokenseal/PyV8-OS-X#egg=pyv8
+$ pip install -e git+https://github.com/brokenseal/PyV8-OS-X#egg=pyv8
 $ git clone https://github.com/emmetio/pyv8-binaries.git
 $ unzip pyv8-binaries/pyv8-linux64.zip (or unzip appropriate zip file based on kernel version)
 $ mv *PyV8* src/pyv8/pyv8/.
